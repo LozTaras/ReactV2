@@ -12,40 +12,52 @@ export default class SwapiService {
     return await res.json();
   }
 
-  async getAllPeople() {
+  getAllPeople = async () => {
     const res = await this.getResource(`/people/`);
 
     return res.results.map(this._transformPersone);
   }
 
-  async getPerson(id) {
+  getPerson = async (id) => {
     const persone = await this.getResource(`/people/${id}/`);
 
     return this._transformPersone(persone);
   }
 
-  async getAllPlanets() {
+  getAllPlanets = async () => {
     const res = await this.getResource(`/planets/`);
 
     return res.results.map(this._transformPlanet);
   }
 
-  async getPlanet(id) {
+  getPlanet = async (id) => {
     const planet = await this.getResource(`/planets/${id}/`);
 
     return this._transformPlanet(planet);
   }
 
-  async getAllStarships() {
+  getAllStarships = async () => {
     const res = await this.getResource(`/starships/`);
 
     return res.results.map(this._transformSpaceship);
   }
 
-  async getStarship(id) {
+  getStarship = async (id) => {
     const ship = await this.getResource(`/starships/${id}/`);
 
     return this._transformSpaceship(ship);
+  }
+
+  getPersonImage = (id) => {
+    return `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
+  }
+
+  getPlanetImage = (id) => {
+    return `https://starwars-visualguide.com/assets/img/planets/${id}.jpg`;
+  }
+
+  getStarshipImage = (id) => {
+    return `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`;
   }
 
   _extractId(item) {

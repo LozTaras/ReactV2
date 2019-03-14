@@ -3,15 +3,22 @@
   padding-left: 10px;
 }
 
-.header ul li {
+.header ul {
+  align-items: flex-start;
   list-style: none;
   margin: 0;
+}
+
+
+.header ul a {
+  display: block;
   padding: .5rem 1rem;
   border-radius: 3px;
 }
 
-.header ul li:hover {
+.header ul li:hover a {
   background-color: #444;
+  color: #007053;
 }
 
 .header a:hover {
@@ -20,8 +27,4 @@
 
 .header h3 a {
   color: white;
-}
-
-.header h3 a:hover {
-  color: #00bc8c;
 }
